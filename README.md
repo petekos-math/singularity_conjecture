@@ -1,5 +1,5 @@
 # Singularity Conjecture
-This is a collaborative effort in order to collect all existing results related to the singularity conjecture and oultine existing approaches to its resolution.
+This survey is intended to be an up-to-date survey on the singularity conjecture, serving as an improved version of a brief survey outlined in the author's PhD thesis.
 
 # Our goals
 
