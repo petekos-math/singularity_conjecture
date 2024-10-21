@@ -38,7 +38,9 @@
 \maketitle
 
 \begin{abstract}
-We provide a complex-analytic approach to the classification of stationary probability measures on $S^1$ with respect to complex finite Borel measures on $PSU(1,1)$ satisfying the finite first moment condition by studying their Poisson-like and Cauchy-Szeg\H{o} transforms from the perspective of generalized analytic continuation. This approach allows us to establish the singularity of the hitting measure for finitely supported admissible random walks on cocompact lattices in $PSU(1,1)$, affirmatively resolving the Kaimanovich-le Prince's singularity conjecture. In addition, it suggests alternative proofs to the several well-known related results by Furstenberg, Kaimanovich, Guivarc'h-le Jan and Bourgain, among several others.
+We provide a complex-analytic approach to the classification of stationary probability measures on $S^1$ with respect to complex finite Borel measures on $PSU(1,1)$ satisfying the finite first moment condition by studying their Poisson-like and Cauchy-Szeg\H{o} transforms from the perspective of generalized analytic continuation. 
+
+%This approach allows us to establish the singularity of the hitting measure for finitely supported admissible random walks on cocompact lattices in $PSU(1,1)$, affirmatively resolving the Kaimanovich-le Prince's singularity conjecture. In addition, it suggests alternative proofs to the several well-known related results by Furstenberg, Kaimanovich, Guivarc'h-le Jan and Bourgain, among several others.
 \end{abstract}
 
 \section{Introduction}
@@ -83,7 +85,7 @@ In our paper we will study the actions of subgroups $\Gamma \subset G = PSU(1,1)
 	\item And, finally, if it is of first kind, whether it is cocompact or not.
 \end{itemize}
 
-First results about stationary measures and Poisson boundaries for discrete subgroups of $SL_n(\mathbb{R})$ were established by Furstenberg in \cite{furstenberg1963noncommuting}. In particular, the question of when the Lebesgue measure is $\mu$-stationary was first studied by Furstenberg as well in \cite{furstenberg71}. Pure Fourier-like approaches were independently demonstrated by \cite{Bourgain2012} and \cite{MR2969625}, which allow us to study $\mu$-stationary measures for \textbf{dense} subgroups of $PSU(1,1)$. However, their methods do not apply for discrete groups and are quite delicate with respect to the initial data, requiring complicated number-theoretic and analytic methods to properly apply. There have been multiple improvements to Bourgain's approach, see \cite{lequen2022absolutely} and \cite{kittle2023absolutely} for latest examples, but they still do not apply to the discrete case and non-finite supports. Finally, we want to mention recent attempts to understand the structure of harmonic and Patterson-Sullivan measures using thermodynamic formalism, for example, \cite{garcía2023dimension} and \cite{cantrell2022invariant}. Once again, these approaches are not universal, as Garc\`{i}a-Lessa's paper does not generalize to first-kind Fuchsian groups, and the thermodynamic approach of Cantrell-Tanaka provides considerably more information for Patterson-Sullivan measures than harmonic measures.
+First results about stationary measures and Poisson boundaries for discrete subgroups of $SL_n(\mathbb{R})$ were established by Furstenberg in \cite{furstenberg1963noncommuting}. In particular, the question of when the Lebesgue measure is $\mu$-stationary was first studied by Furstenberg as well in \cite{furstenberg71}. Pure Fourier-like approaches were independently demonstrated by \cite{Bourgain2012} and \cite{MR2969625}, which allow us to study $\mu$-stationary measures for \textbf{dense} subgroups of $PSU(1,1)$. However, their methods do not apply for discrete groups and are quite delicate with respect to the initial data, requiring complicated number-theoretic and analytic methods to properly apply. There have been multiple independently developed improvements to Bourgain's approach, see \cite{lequen2022absolutely} and \cite{kogler2022locallimittheoremrandom} for latest examples, but they still do not apply to the discrete case and non-finite supports. We also want to mention \cite{kittle2023absolutely}, which provides an entirely different analytic framework to study stationary measures, allowing us to consider stationary measures with continuous but not necessarily differentiable densities. Finally, we want to mention recent attempts to understand the structure of harmonic and Patterson-Sullivan measures using thermodynamic formalism, for example, \cite{garcía2023dimension} and \cite{cantrell2022invariant}. Once again, these approaches are not universal, as Garc\`{i}a-Lessa's paper does not generalize to first-kind Fuchsian groups, and the thermodynamic approach of Cantrell-Tanaka provides considerably more information for Patterson-Sullivan measures than harmonic measures.
 
 As one can see, up until now there was no single method which unified all above settings, and until very recently, the general consensus was that no such method should have exist, in light of the incredible variety of techniques used to study different settings. 
 
@@ -92,35 +94,40 @@ Inspired by the standard techniques used to study affine self-similar measures o
 \[
 \psi(z) := \frac{1}{2\pi} \int_{0}^{2\pi} \left( \frac{1 - |z|^2}{|z - e^{i t}|^2}\right)^{\lambda i + 1} d\nu(t)
 \]
-does not exhibit any nice properties with respect to the action of $PSU(1,1)$, unlike what we see for Patterson-Sullivan measures. However, replacing the Poisson kernel with its logarithm, which is closely related to the Busemann cocycle, does the trick, turning a multiplicative relation into an additive one. The resulting functional equation \eqref{intro: functional equation} serves as a proper holomorphic version of \eqref{intro: stationary measure}, and, in a way, it allows us to change the perspective, as we shift from the measurable setting to a holomorphic functions on $\mathbb{D}$, granting access to the vast complex-analytic machinery.
+does not exhibit any nice properties with respect to the action of $PSU(1,1)$, unlike what we see for Patterson-Sullivan measures. However, replacing the Poisson kernel with its logarithm, which is closely related to the Busemann cocycle, does the trick, turning a multiplicative relation into an additive one. The resulting functional equation \eqref{intro: functional equation} serves as a proper holomorphic version of \eqref{intro: stationary measure}, and, in a way, it allows us to change the perspective, as we shift from the measurable setting to a holomorphic one on $\mathbb{D}$, granting access to the powerful complex-analytic machinery.
 
 Before stating our results, we would like to point out that it is sufficient to study pure $\mu$-stationary measures due to the fact that the action of $PSU(1,1)$ respects the Lebesgue decomposition, this is a standard reduction.
 
-Our main result is a following necessary condition for stationarity.
+In order to formulate the main result, we need the definition of the Cauchy-Szeg\"{o} transform:
+\[
+f_\nu(z) := \frac{1}{2\pi} \int_{0}^{2\pi} \dfrac{d\nu(t)}{e^{it} - z}.
+\]
 
 \begin{theorem}
 	\label{T:main result}
-	Let $\mu$ be a complex finite Borel measure on $G=PSU(1,1)$ satisfying the following moment condition:
+	Let $\mu$ be a probability measure on $G=PSU(1,1)$ satisfying the following moment condition:
 	\begin{equation}
 		\int_{G} \log\left( \frac{1 + |\gamma.z| }{1 - |\gamma.z|} \right)  d |\mu| (\gamma) < \infty
 	\end{equation}
-	for any $z \in \mathbb{D}$.	Then a probability measure $\nu$ on $S^1$ is $\mu$-stationary implies that the Cauchy transform 
-	\[
-	f_\nu(z) := \frac{1}{2\pi} \int_{0}^{2\pi} \dfrac{d\nu(t)}{e^{it} - z}
-	\] 
-	satisfies
-	\begin{equation}
-		\label{intro: functional equation}
-		\int_G f_\nu(\gamma^{-1}.z)(\gamma^{-1})'(z)  d\mu(\gamma) - f_\nu(z) = \int_G \frac{d \mu(\gamma)}{z - \gamma.\infty}.
-	\end{equation}
-	for every $z \in \mathbb{D}$. Moreover, if $\mu$ is countably supported then the above holds for all \\ $z \in \overline{\mathbb{C}} \setminus \{ \mathbb{T} \cup \{ \gamma.\infty \}_{\gamma \in \text{supp} \mu } \}$.
+	for any $z \in \mathbb{D}$.	
+	
+	\begin{itemize}
+		\item If a probability measure $\nu$ on $S^1$ is $\mu$-stationary, then
+		\begin{equation}
+			\label{intro: functional equation}
+			\int_G f_\nu(\gamma^{-1}.z)(\gamma^{-1})'(z)  d\mu(\gamma) - f_\nu(z) = \int_G \frac{d \mu(\gamma)}{z - \gamma.\infty},
+		\end{equation}
+		for every $z \in \mathbb{D}$. 
+		\item If, in addition, $\mu$ is countably supported, then the above equation holds for all \\ $z \in \overline{\mathbb{C}} \setminus \{ \mathbb{T} \cup \{ \gamma.\infty \}_{\gamma \in \text{supp} \mu } \}$.
+		\item Finally, if the support of $\mu$ generates a countable discrete subgroup of $PSU(1,1)$, then a probability measure $\nu$ on $S^1$ is $\mu$-stationary \textbf{if and only if} \eqref{intro: functional equation} holds for all $z \in \overline{\mathbb{C}} \setminus \{ \mathbb{T} \cup \{ \gamma.\infty \}_{\gamma \in \text{supp} \mu } \}$.
+	\end{itemize}
 \end{theorem}
 
-\textbf{Remark.} We don't claim that this is a sufficient condition for any $\mu$, as we, predictably, expect to lose some information by ``cutting'' $\nu$ in half and applying $\mu$-stationarity. Moreover, as the reader will see, this direction turns out to be more than enough for our purposes.
+\textbf{Remark.} The necessary condition is universal with respect to $\mu$, we only require the moment condition to hold 
 
 The power of this theorem lies in the fact that we managed to successfully transform a measurable functional equation on the circle into a holomorphic condition on the unit disk, which allows us to make use of powerful complex-analytic techniques.
 
-We are able to extract the most amount of information from \eqref{intro: functional equation} for \textbf{countably supported probability} measures $\mu$. Before stating the corollary, let us recall the \textbf{Blaschke condition} for a sequence $\{ z_n \} \subset \mathbb{D}$:
+Evidently, we are able to extract the most amount of information from \eqref{intro: functional equation} for countably supported probability measures $\mu$. Before stating the corollary, let us recall the \textbf{Blaschke condition} for a sequence $\{ z_n \} \subset \mathbb{D}$:
 
 \begin{equation}
 	\label{Blachke condition}
@@ -144,7 +151,7 @@ Equation \eqref{intro: functional equation} gives us quite a lot of insight into
 	\label{intro: Lebesgue is stationary}
 	Let $\mu$ be a finite Borel measure supported on a discrete subgroup $\Gamma \subset PSU(1,1)$ with a finite first moment. Let's call a measure $\mu$ on $PSU(1,1)$  the \textbf{Furstenberg measure} if the normalized Lebesgue measure on $S^1$ is $\mu$-stationary.
 	\begin{enumerate}
-		\item If $\mu$ is a Furstenberg measure, then
+		\item The measure $\mu$ is a Furstenberg measure if and only if
 		\begin{equation}
 			\int_G \frac{d \mu(\gamma)}{z - \gamma.\infty} = 0, \quad |z| < 1.
 		\end{equation}
@@ -175,26 +182,10 @@ Finally, as a corollary from Fatou's theorem, we get a functional-analytic neces
 	where
 	\begin{itemize}
 		\item $T_\mu(f) := \sum_{\gamma} \mu(\gamma) (f \circ \gamma^{-1}) (\gamma^{-1})' - f$ is considered as a bounded linear operator \\ $T_\mu : H^p(\mathbb{D}) \rightarrow H^p(\mathbb{D})$, and $\frac{1}{p} + \frac{1}{q} = 1$,
-		\item $B_\mu(z)$ is the Blaschke function corresponding to the support of $\mu$:
+		\item $B_\mu H^p$ denotes the subspace of functions in $H^q$ which vanish on the support of $\mu$. This is a non-trivial closed subspace due to the Blaschke condition.
 	\end{itemize}
-	\[
-	B_\mu(z) := \prod_{\gamma \in \text{supp}(\mu)} \gamma^{-1}(z).
-	\]
 	In particular, if $T_\mu^*(B_\mu H^q)$ is dense in $H^q$, then there are no $\mu$-stationary measures with $L^p$-density.
 \end{corollary}
-
-Finally, we make use of A. Aleksandrov's approximation results in $H^p(\mathbb{D})$ for $p < 1$ to get the following result.
-
-\begin{theorem}
-	\label{intro: singularity conjecture}
-	Let $(X_n)$ be an admissible random walk on a non-elementary discrete subgroup \\ $\Gamma \leq PSU(1,1)$ with the finite first moment generated by the probability measure $\mu$. If $\nu$ is the $\mu$-stationary measure, then $f_\nu(z) \in H^p \cap \overline{H^p_0}$ for all $0 < p < 1$. In particular, there are only three possible outcomes:
-	\begin{enumerate}[label=(\arabic*)]
-		\item $\nu$ is the Lebesgue measure,
-		\item $\nu$ admits an $L^1(S^1)$-density which does not belong to $L^{(1+\varepsilon)}(S^1)$ for any $\varepsilon > 0$,
-		\item $\nu$ is singular with respect to the Lebesgue measure.
-	\end{enumerate}
-	If $\mu$ satisfies the Blaschke condition, then (1) cannot happen, that is, $\mu$ is not a Furstenberg measure. If, in addition, $\mu$ has finite superexponential moment and $\Gamma$ is a cocompact group, then the hitting measure is singular with respect to the Lebesgue measure.
-\end{theorem}
 
 
 Corollary \ref{C:main corollary}.1 strictly strengthens the very last remark in \cite{Bourgain2012}, where it was proven that the Lebesgue measure is never stationary with respect to finitely supported measures on $PSU(1,1)$. Corollary \ref{C:main corollary}.2, in theory, provides a purely computational heuristic to showing singularty of stationary measures, as for lattices in $PSU(1,1)$, one expects the poles to converge to $\mathbb{T}$, whereas for dense subgroups one would expect the poles to accumulate inside $\mathbb{D}$, thus forcing the $H^1$-norms to stay bounded. 
@@ -204,11 +195,7 @@ Corollary \ref{intro: Lebesgue is stationary} provides several new insights into
 
 Corollary \ref{functional-analytic necessary condition} provides a pretty significant restriction on the stationary measures in the $L^p$-class for $1 < p < \infty$, and, in theory, the images with respect to the adjoint operator $T_\mu^*$ can be computed explicitly for any measure $\mu$ satisfying the Blaschke condition.
 
-Finally, Theorem \ref{intro: singularity conjecture} affirmatively resolves the singularity conjecture by exploiting the fact that the random walk induces an $H^p$-approximation of the Cauchy transforms of $\mu^{*n}$ to the Cauchy transforms of the hitting measure $\nu$. While the Cauchy transforms of $\mu^{*n}$ do not(!) belong to a special closed subspace $H^p \cap \overline{H^p_0} \subset H^p$ for all $p < 1$ they approach it in the $H^p$-metric, so the limit has to belong to $H^p \cap \overline{H^p_0}$ as well. This subspace does not contain Cauchy-Szeg\H{o} transforms of non-Lebesgue absolutely continuous measures with ``nice'' densities, and we can use the moment condition to invoke \cite{blachere2011harmonic} and eliminate this case. The proof of the main statement is mostly independent of Theorem \ref{T:main result}, we only need the functional equation to determine whether the Lebesgue measure can be stationary.
-
-The structure of the paper is as follows. In Section \ref{Preliminaries} we recall all necessary facts about transformations $PSU(1,1)$ and provide a brief recap of complex-analytic tools we are going to use. In Section \ref{The log-Poisson transform of a stationary measure} we introduce an appropriate integral transform which fully respects the action of $PSU(1,1)$ to obtain a holomorphic necessary condition for $\mu$-stationarity, thus proving Theorem \ref{T:main result}. In Section \ref{Squeezing water from a stone} we extract the most we can from the resulting equation, using state-of-the-art techniques related to generalized analytic continuations. Section \ref{The proof of the singularity conjecture} is dedicated to proving Theorem \ref{intro: singularity conjecture} by establishing several results about approximation by rational functions/Borel series in $H^p$ for $0 < p < 1$.
-
-%\textbf{Remark.} This is very much work in progress -- we believe that the established connection between the structure of stationary measures and closed invariant subspaces with respect to the backward shift goes much, much deeper. We will outline some of the open questions in the concluding section of this preprint.
+The structure of the paper is as follows. In Section \ref{Preliminaries} we recall all necessary facts about transformations $PSU(1,1)$ and provide a brief recap of complex-analytic tools we are going to use. In Section \ref{The log-Poisson transform of a stationary measure} we introduce an appropriate integral transform which fully respects the action of $PSU(1,1)$ to obtain a holomorphic necessary condition for $\mu$-stationarity, thus proving Theorem \ref{T:main result}. In Section \ref{Squeezing water from a stone} we extract the most we can from the resulting equation, using state-of-the-art techniques related to generalized analytic continuations. 
 
 \subsection{Acknowledgements}
 I would like to thank Ilyas Bayramov, Ivan Nikitin, Ilia Binder, Kunal Chawla, Mathav Murugan, Pablo Shmerkin, Lior Silberman and Omer Angel for useful discussions. Also I am tremendously grateful to Alexander Kalmynin, Giulio Tiozzo and Tianyi Zheng for reading the preliminary version of this preprint and for providing continued support and encouragement throughout the past year. Finally, I would like to thank Giulio Tiozzo for organizing a short visit to the Fields institute on Feb 19--22, 2024. 
@@ -255,72 +242,13 @@ and, as a simple corollary,
 \end{proof}
 
 
-\begin{definition}
-	\begin{equation}
-		\label{pseudo-Busemann cocycle}
-		\hat{c}_B(z, \xi) := \log\left( \frac{1- |z|^2}{|z - \xi|^2} \right), \quad |z| < 1, |\xi| = 1.  
-	\end{equation}
-\end{definition}
-
-
-\textbf{Remark.} This notation is motivated by the explicit form of the \textbf{Busemann cocycle} for discrete subgroups of $PSU(1,1)$ acting geometrically on $\mathbb{H}^2$.
-
-Let us prove some properties of $\hat{c}_B(z, \xi)$ first.
-
-\begin{lemma}
-	For every $\gamma \in PSU(1,1)$ and $|z| < 1$ we have
-	
-	\begin{equation}
-		\label{eq1}
-		\log(1 - |\gamma.z|^2) - \log(1 - |z|^2) = \log(|\gamma'(z)|), \quad z \in \overline{\mathbb{C}},
-	\end{equation}
- 	and
-	\begin{equation}
-		\label{cocycle}
-		\hat{c}_B(\gamma.z, \gamma.\xi) = \hat{c}_B(z, \xi) - \hat{c}_B(\gamma^{-1}.0, \xi), \quad |z| < 1, |\xi| = 1.
-	\end{equation}
-\end{lemma}
-
-\begin{proof}
-Let $\gamma(z) := \frac{a z + b}{\overline{b} z + \overline{a}}$. Then
-\[
-\begin{aligned}
-	\dfrac{1 - |\gamma.z|^2}{1 - |z|^2} &= \dfrac{1 - \left| \frac{az + b}{\overline{b} z + \overline{a}} \right|^2 }{1 - |z|^2} = \dfrac{|\overline{b} z + \overline{a}|^2 - \left| az + b \right|^2 }{(1 - |z|^2) |\overline{b} z + \overline{a}|^2} = \\
-	&= \dfrac{(\overline{b} z + \overline{a})(b \overline{z} + a) - (az + b)(\overline{a} \overline{z} + \overline{b}) }{(1 - |z|^2) |\overline{b} z + \overline{a}|^2} = \\ 
-	&= \frac{1 - |z|^2}{(1 - |z|^2) |\overline{b} z + \overline{a}|^2} = \frac{1}{|\overline{b} z + \overline{a}|^2} = |\gamma'(z)|.
-\end{aligned}
-\]
-This implies \eqref{eq1}. As for \eqref{cocycle}, observe that for every $\gamma(z) = \frac{az + b}{\overline{b} z + \overline{a}}$ we have
-\[
-\begin{aligned}
-	|\gamma.z - \gamma.\xi|^2 &=  \left( \frac{az + b}{\overline{b} z + \overline{a}} - \frac{a \xi + b}{\overline{b} \xi + \overline{a}}\right) \left( \frac{\overline{a}\overline{z} + \overline{b}}{b \overline{z} + a} - \frac{\overline{a}\overline{\xi} + \overline{b}}{b \overline{\xi} + a} \right) = \\ 
-	&= |\gamma'(z)| |\gamma'(\xi)| |z - \xi|^2,
-\end{aligned}
-\]
-and
-\[
-\hat{c}_B(\gamma^{-1}.0, \xi) = \log \left( \frac{1 - |\frac{b}{a}|^2}{|-\frac{b}{a} - \xi|^2} \right) = \log \left( \frac{|a|^2 - |b|^2}{|-b - a\xi|^2} \right) = \log(|\gamma'(\xi)|).
-\]
-Therefore,
-\[
-\begin{aligned}
-	\hat{c}_B(\gamma.z, \gamma.\xi) &= \log\left( \frac{1- |\gamma.z|^2}{|\gamma.z - \gamma.\xi|^2} \right) = \log\left( \frac{(1- |z|^2) |\gamma'(z)|}{|\gamma'(z)| |\gamma'(\xi)| |z - \xi|^2} \right) = \\ &= \log \left( \frac{1 - |z|^2}{|\gamma'(\xi)| |z - \xi|^2} \right) = \hat{c}_B(z, \xi) - \log(|\gamma'(\xi)|) = \\ &= \hat{c}_B(z, \xi) - \hat{c}_B(\gamma^{-1}.0, \xi)
-\end{aligned}
-\]
-\end{proof}
-
-\textbf{Remark.} Compare with the property of being a $2$-cocycle:
-\[
-c(gh, x) = c(g, hx) + c(h, x).
-\]
-
 Finally, recall that for any $\gamma(z) = \frac{a z + b}{\overline{b} z + \overline{a}}$ with $|a|^2 - |b|^2 = 1$ we have
 \begin{equation}
 	\label{poles of the log derivative}
 		\frac{1}{2} \frac{\gamma''(z)}{\gamma'(z)} = \frac{1}{2} \frac{-2\overline{b}}{(\overline{b}z + \overline{a})^3} \left( \frac{1}{(\overline{b}z + \overline{a})^2}\right)^{-1} = \frac{- \overline{b}}{\overline{b}z + \overline{a}} = - \frac{1}{z + \frac{\overline{a}}{\overline{b}}} = - \frac{1}{z - \gamma^{-1}.\infty}.
 \end{equation}
 
-\subsection{Complex-analytic prerequisites}
+\subsection{Complex-analytic prerequisites: Hardy spaces}
 We will heavily rely on standard complex-analytic techniques related to Cauchy transforms and generalized analytic continuation, we refer to standard textbooks on these topics: \cite{Shapiro1968}, \cite{cimahardy}, \cite{book:738388}.
 
 Let us denote $\mathbb{D} = \{ |z| < 1 \}$ and $\mathbb{D}_e := \overline{\mathbb{C}} \setminus \overline{\mathbb{D}}$. Given a domain $U \subset \overline{\mathbb{C}}$, we will denote the space of holomorphic functions on $U$ by $\mathfrak{H}(U)$ and the space of meromorphic functions on $U$ by $\mathfrak{M}(U)$.
@@ -338,8 +266,12 @@ Let us denote $\mathbb{D} = \{ |z| < 1 \}$ and $\mathbb{D}_e := \overline{\mathb
 It is well-known that for $1 \le p \le \infty$ the function $||\cdot||_p : H^p(\mathbb{D}) \rightarrow \mathbb{R}_{\ge 0}$ defines a norm, so the respective Hardy spaces $H^p(\mathbb{D})$ are Banach spaces for $1 \le p \le \infty$. For $0 < p < 1$ the Hardy spaces $H^p(\mathbb{D})$ admit a complete translation-invariant metric defined by $d(f, g) := ||f - g||^p_p$, but the topology it defines is not non-locally convex.
 
 \begin{definition}
+	Let $f$ be a meromorphic function on $\mathbb{D}$ ($\mathbb{D}_e$, resp.). If the limit $\lim\limits_{r \rightarrow 1^-} f(r e^{it})$ ($\lim\limits_{r \rightarrow 1^+} f(r e^{it})$ resp.) exists Leb-almost everywhere on $\mathbb{T}$, then we say that $f$ admits a \textbf{non-tangential limit} on the boundary.
+\end{definition}
+
+\begin{definition}
 	\label{D:non-tangential convergence}
-	A sequence of points $\{z_n\} \subset \mathbb{D}$ is said to \textbf{non-tangentially} converge to $\xi \in \partial \mathbb{D}$ if there exists a \textbf{Stolz angle} $\{ \frac{|\xi - z|}{1 - |z|} \le M \}$ and $N > 0$ such that $z_n \rightarrow \xi$ and $z_n \subset A$ for $n > N$.
+	A sequence of points $\{z_n\} \subset \mathbb{D}$ is said to \textbf{non-tangentially} converge to $\xi \in \partial \mathbb{D}$ if there exists a \textbf{Stolz angle} $A = \{ \frac{|\xi - z|}{1 - |z|} \le M \}$ and $N > 0$ such that $z_n \rightarrow \xi$ and $z_n \subset A$ for $n > N$.
 \end{definition}
 
 We will frequently use the following classical theorems.
@@ -352,7 +284,7 @@ We will frequently use the following classical theorems.
 	\]
 \end{theorem}
 
-\begin{theorem}[F. Riesz - M. Riesz]
+\begin{theorem}[F. Riesz, M. Riesz]
 	\label{T: Riesz-Riesz theorem}
 		For $p \ge 1$ we have a complete realization of the Hardy spaces $H^p(\mathbb{D})$ as subspaces $L^p(S^1)$: these are exactly the functions with vanishing negative Fourier coefficients.
 \end{theorem}
@@ -368,21 +300,19 @@ Let us briefly list some examples of holomorphic functions in Hardy spaces.
 	\end{itemize}
 \end{example}
 
-%\begin{definition}
-%	Let $f$ be a meromorphic function on $\mathbb{D}$ ($\mathbb{D}_e$, resp.). If the limit $\lim\limits_{r \rightarrow 1^-} f(r e^{it})$ ($\lim\limits_{r \rightarrow 1^+} f(r e^{it})$ resp.) exists Leb-almost everywhere on $\mathbb{T}$, then we say that $f$ admits a \textbf{non-tangential limit} on the boundary.
-%\end{definition}
-%
-%\begin{definition}
-%	Let $f$ be a meromorphic function on $\mathbb{D}$. If there exists a function $T_f$ which is meromorphic on $\mathbb{D}_e$ such that the non-tangential limits of $f$ and $\tilde{f}$ coincide Leb-almost everywhere, then we say that $f$ is \textbf{pseudocontinuable}, and $T_f$ is a \textbf{pseudocontinuation} of $f$, and vice versa.
-%\end{definition}
-%
-%In our paper we will use several important results about non-tangential limits and pseudocontinuations.
-%
-%\begin{theorem}[Lusin-Privalov, \cite{privalov1956randeigenschaften}]
-%	If $f$ is pseudocontinuable, then its pseudocontinuation is unique.
-%\end{theorem}
-%
-%As a corollary, we get that pseudocontinuations are compatible with analytic continuations. The next theorem is a well-known fact about non-tangential limits of functions in the Hardy spaces $H^p(\mathbb{D})$ and $H^p(\mathbb{D}_e)$.
+\subsection{Complex-analytic prerequisites: pseudocontinuations}
+
+\begin{definition}
+	Let $f$ be a meromorphic function on $\mathbb{D}$. If there exists a function $T_f$ which is meromorphic on $\mathbb{D}_e$ such that the non-tangential limits of $f$ and $\tilde{f}$ coincide Leb-almost everywhere, then we say that $f$ is \textbf{pseudocontinuable}, and $\tilde{f}$ is a \textbf{pseudocontinuation} of $f$, and vice versa.
+\end{definition}
+
+In our paper we will use several important results about non-tangential limits and pseudocontinuations.
+
+\begin{theorem}[Lusin-Privalov, \cite{privalov1956randeigenschaften}]
+	If $f$ is pseudocontinuable, then its pseudocontinuation is unique.
+\end{theorem}
+
+As a corollary, we get that pseudocontinuations are compatible with analytic continuations.
 
 \begin{definition}
 	Let $\nu$ be a complex finite Borel measure on $S^1$. Then its \textbf{Cauchy transform} is the integral
@@ -395,11 +325,28 @@ Let us briefly list some examples of holomorphic functions in Hardy spaces.
 	\end{equation}
 \end{definition}
 
-The properties of $C_\nu(z)$ as a holomorphic function on $\mathbb{D}$ strongly depend on $\nu$ itself, but the following theorem of Smirnov ensures that we at least end up in $H^p(\overline{C}  \setminus \mathbb{T})$ for $p < 1$.
+It is easy to see that $C_\nu(z) = f_{\nu'}(z)$ for $d \nu'(t) = e^{it} d \nu(t)$, but we will still use both transforms when convenient.
+
+The properties of $C_\nu(z)$ as a holomorphic function on $\mathbb{D}$ strongly depend on $\nu$ itself, but the following theorem of Smirnov ensures that we at least end up in $H^p(\overline{\mathbb{C}}  \setminus \mathbb{T})$ for $p < 1$.
 
 \begin{theorem}[Smirnov]
 	\label{T:Smirnov}
 	Let $f(z) = C_\nu(z)$ for some complex finite Borel measure $\nu$. Then $f \in H^p(\mathbb{D})$ and $f \in H^p(\mathbb{D}_e)$ for all $0 < p < 1$.
+\end{theorem}
+
+In particular, we get that Cauchy transforms cannot grow too fast:
+
+\begin{theorem}
+	\label{growth rates for Cauchy}
+	Let $f(z) = C_\nu(z)$ for some complex Borel measure $\nu$ on $S^1$. Then
+	\[
+	|f(z)| = O\left( \frac{1}{1 - |z|} \right) 
+	\]
+	for $z \in \mathbb{D}$, and
+	\[
+	|f(z)| = O\left( \frac{1}{1 - |z|^{-1}} \right) 
+	\]
+	for $z \in \mathbb{D}_e$.
 \end{theorem}
 
 We can do better if we know that $\nu \ll Leb$ due to a theorem of M. Riesz.
@@ -409,202 +356,128 @@ We can do better if we know that $\nu \ll Leb$ due to a theorem of M. Riesz.
 	Let $\nu$ be an absolutely continuous measure on $S^1$ with the $L^p$-density for $1 < p < \infty$. Then $C_\nu(z) \in H^p(\mathbb{D})$.
 \end{theorem}
 
-\textbf{Remark.} This theorem cannot not hold for $p = 1, \infty$, as it is well-known that there are no continuous projections $L^1 \rightarrow H^1$ and $L^\infty \rightarrow H^{\infty}.$
+\textbf{Remark.} This theorem cannot not hold for $p = 1$ or $p = \infty$, as it is well-known that there are no continuous projections $L^1 \rightarrow H^1$ and $L^\infty \rightarrow H^{\infty}.$
+
+Finally, the Cauchy transform of a positive Borel measure on $S^1$ is unique in the following sense:
+
+\begin{theorem}[\cite{book:738388}, Proposition 4.1.4]
+	Let $\nu_1, \nu_2$ be two probability measures on $S^1$. \\ Then $C_{\nu_1} = C_{\nu_2}$ if and only if $f_{\nu_1} = f_{\nu_2}$ if and only if $\nu_1 = \nu_2$.
+\end{theorem}
 
 \begin{example}
 	\indent
 	\begin{itemize}
-		\item 	Consider $f(z) = (1 - z)^{-1}$. This is the Cauchy transform of the Dirac delta measure $\delta_1$, so $f(z) \in H^p(\mathbb{D})$ for all $0 < p < 1$, but $f(z) \notin H^{1}(\mathbb{D})$. Both statements are slightly tricky to prove directly, but a vital idea is that the integral
+		\item Consider $f(z) = (1 - z)^{-1}$. This is the Cauchy transform of the Dirac delta measure $\delta_1$, so $f(z) \in H^p(\mathbb{D})$ for all $0 < p < 1$, but $f(z) \notin H^{1}(\mathbb{D})$. The idea is that the integral
 		\[
 		\int_{0}^1 \frac{dx}{x^p}
 		\]
 		converges for $p < 1$ and diverges for $p = 1$.
 		\item This suggests that for $0 < p < 1$ it makes sense to talk about the closure of all simple poles $z \rightarrow \frac{1}{1 - e^{it}z}$ on $\mathbb{T}$, and it turns out that this closure admits a very nice description:
 		\begin{equation}
-			\text{span}^{H^p} \left\lbrace \frac{1}{1 - e^{it}z} \right\rbrace := H^p \cap \overline{H^p_0},
+			\overline{\text{span}}^{H^p} \left\lbrace \frac{1}{1 - \xi z} : |\xi| = 1 \right\rbrace := H^p \cap \overline{H^p_0},
 		\end{equation}
-		where by $H^p \cap \overline{H^p_0}$ we denote the subspace of all functions $f(z) \in \mathcal{H}(\overline{C} \setminus \mathbb{T})$, such that both inner and outer components lie in $H^p$, $f(\infty) = 0$ and inner + outer non-tangential limits a.e. exist and coincide. 
-		
-		
+		where by $H^p \cap \overline{H^p_0}$ we denote the subspace of all functions $f(z) \in \mathcal{H}(\overline{\mathbb{C}} \setminus \mathbb{T})$, such that both inner and outer components lie in $H^p$, $f(\infty) = 0$ and inner + outer non-tangential limits a.e. exist and coincide. See \cite{Ale79} for a proof.
 	\end{itemize}
 \end{example}
-\textbf{Remark.} This exotic subspace has trivial intersections with $H^{1 + \varepsilon}(\mathbb{D})$ for all $\varepsilon > 0$, and it is of critical importance when studying harmonic measures for finitely supported random walks on discrete subgroups. Our strategy exploits the finiteness of the support to exhibit a rational approximation (with simple poles on $\mathbb{T}$) of the Cauchy-Szeg\H{o} transform of the hitting measure, which will force the transform to be in this subspace.
 
-We will also need some facts about weighted composition operators with respect to M\"obius transformations.
+The above space $H^p \cap \overline{H^p_0}$ is very important because of the following theorem.
 
-\begin{theorem}
+\begin{theorem}[Fatou]
+	A probability measure $\nu$ on $S^1$ is singular if and only if $f_\nu(z) \in H^p \cap \overline{H_0^p}$ if and only if $C_\nu(z) \in H^p \cap \overline{H_0^p}$.
+\end{theorem}
+
+A direct computation yields the following proposition.
+
+\begin{proposition}
 	\label{weighted composition ops}
-	Let $\gamma \in PSU(1,1)$ and consider the operator
+	Let $\gamma \in PSU(1,1)$ and consider the linear operator
 	\[
 	V_\gamma(f)(z) := f(\gamma^{-1}(z)) (\gamma^{-1})'(z).
 	\] 
-	\begin{itemize}
-		\item For every $w \in \mathbb{C}$ we have
-		\[
+	Then for every $w \in \mathbb{C}$ we have
+	\[
 		V_\gamma \left( \frac{1}{w - z} \right) = \frac{1}{\gamma.w - z} - \frac{1}{\gamma.\infty - z}.
-		\]
-		\item $V_\gamma : H^p(\mathbb{D}) \rightarrow H^p(\mathbb{D})$ is a bounded linear operator for $1 \le p \le \infty$, being an isometry for $p = 1$.
-	\end{itemize}
+	\]
+\end{proposition}
+
+\section{Holomorphic stationarity condition}
+\label{Holomorphic stationarity condition}
+In this section we will provide proofs of the main results.
+\begin{theorem}
+	Let $\mu$ be a probability measure on $G=PSU(1,1)$ satisfying the finite first moment condition:
+	\begin{equation}
+		\int_{G} \log\left( \frac{1 + |\gamma.z| }{1 - |\gamma.z|} \right)  d \mu (\gamma) < \infty
+	\end{equation}
+	for every $z \in \mathbb{D}$.	Then a probability measure $\nu$ on $S^1$ is $\mu$-stationary implies
+	\begin{equation}
+		\label{main equation, simp}
+		\int_G f_\nu(\gamma^{-1}.z)(\gamma^{-1})'(z)  d\mu(\gamma) - f_\nu(z) = \int_G \frac{d \mu(\gamma)}{z - \gamma.\infty}.
+	\end{equation}
+	for every $z \in \mathbb{D}$.
 \end{theorem}
-
-The first identity quickly follows from a residue computation via (complex) change of variables. The proof of the second statement is a classical application of the Littlewood subordination theorem (see \cite{book:2131218} for details). 
-
-\section{The log-Poisson transform of a stationary measure}
-\label{The log-Poisson transform of a stationary measure}
-\begin{definition}
-	Let $\mu$ be a complex finite Borel measure on $G = PSU(1,1)$. Then a probability measure $\nu$ on $S^1$ is $\mu$-stationary if
-	\begin{equation}
-		\label{stationary measure}
-		\int_G \gamma_*(\nu) d\mu(\gamma) = \nu.
-	\end{equation}
-\end{definition}
-
-\textbf{Remark.} We put minimal restrictions on $\mu$, for example, we allow measures $\mu$ which are absolutely continuous with respect to the Haar measure on $G$.
-
-Let $\nu$ be a Borel probability measure on $S^1$. Consider the function (see \eqref{pseudo-Busemann cocycle} for notation)
-\begin{equation}
-	\label{def of the special function}
-	p_\nu(z) := \int_{S^1} \hat{c}_B(z, \xi) d \nu(\xi).
-\end{equation}
-
-It is easily seen that for any $|z| < 1$ this is a well-defined function as $\hat{c}_B(z, \xi)$ is bounded with respect to $\xi$ on $S^1$. However, it is not always non-negative, as the Poisson kernel itself might take values less than $1$.
-
-\begin{lemma}
-	Let $\mu$ be a complex finite Borel measure satisfying the \textbf{finite first moment} condition:
-	\begin{equation}
-		\label{E:finite first moment}
-		\int_{G} \log\left( \dfrac{1 + |\gamma.z|}{1 - |\gamma.z|} \right) d |\mu|(\gamma)  < \infty
-	\end{equation} 
-	for any $|z| < 1$. If $\nu$ is a $\mu$-stationary probability measure, then
-	\begin{equation}
-		\label{Poisson stat}
-		\int_{G} p_\nu(\gamma^{-1}.z) d \mu(\gamma) - p_\nu(z) = const
-	\end{equation}
-	for all $|z| < 1$.
-\end{lemma}
 
 \begin{proof}
-	First of all, we need to resolve any convergence issues. Finite first moment ensures that the cocycle is absolutely integrable for all $|z| < 1$:
-	\begin{equation}
-		\label{first moment ensures DCT}
-		\begin{aligned}
-			\int_G \int_{S^1} |\hat{c}_B(\gamma^{-1}.z, \xi)| d\nu(\xi) d |\mu|(\gamma)  &= \int_G \int_{S^1} \left|  \log \left( \dfrac{1 - |\gamma^{-1}.z|^2}{|\gamma^{-1}.z - \xi|^2} \right) \right| d\nu(\xi)  d |\mu|(\gamma)  \le \\ 
-			&\le \int_G   \log \left( \dfrac{1 - |\gamma.z|^2}{(1-|\gamma.z|)^2} \right) d|\mu|(\gamma) = \\ 
-			&= \int_G  \log \left( \dfrac{1 + |\gamma.z|}{1-|\gamma.z|} \right) d|\mu|(\gamma) < \infty.
-		\end{aligned}	
-	\end{equation}
-	Therefore, we are able to make use of the Fubini's theorem and DCT. If $\nu$ were to be $\mu$-stationary, then
+	Let $z \in \mathbb{D}$. Due to Theorem \ref{weighted composition ops} we have
 	\[
 	\begin{aligned}
-		p_\nu(z) \stackrel{\eqref{stationary measure}}{=} & \int_{G} \left( \int_{S^1} \hat{c}_B(z, \gamma.\xi) d \nu(\xi) \right)  d \mu(\gamma) \stackrel{\eqref{cocycle}}{=} \\ 
-		&\stackrel{\eqref{cocycle}}{=} \int_{G} \left( \int_{S^1} \hat{c}_B(\gamma^{-1}.z, \xi) - \hat{c}_B(\gamma^{-1}.0,\xi)  d \nu(\xi) \right)  d \mu(\gamma)  \stackrel{\eqref{first moment ensures DCT}}{=} \\
-		&\stackrel{\eqref{first moment ensures DCT}}{=}  \int_{G} p_\nu(\gamma^{-1}.z) d \mu(\gamma)  - \int_{G}p_\nu(\gamma^{-1}.0)  d \mu(\gamma),
+		T_\gamma(f_{\nu})(z) = T_\gamma \left( \frac{1}{2 \pi} \int_{0}^{2 \pi} \frac{d\nu(t)}{e^{it} -  z} \right) &= \frac{1}{2 \pi}  \int_{0}^{2\pi} \left(  \frac{1}{\gamma.e^{it} -  z} - \frac{1}{\gamma.\infty - z} - \frac{1}{e^{it} -  z} \right)  d \nu(t) = \\ 
+		&= \frac{1}{2 \pi}  \int_{0}^{2\pi} \frac{d \gamma_* \nu(t)}{e^{it} -  z}  -  \frac{1}{2 \pi}  \int_{0}^{2\pi} \frac{d \nu(t)}{e^{it} -  z}  - \frac{1}{\gamma.\infty - z} .
 	\end{aligned}
 	\]
-	and both integrals $\int_{G}p_\nu(\gamma^{-1}.0)  d \mu(\gamma)$ and $\int_{G}p_\nu(\gamma^{-1}.z)  d \mu(\gamma)$ are well-defined due to \eqref{first moment ensures DCT}.
+	The moment condition allows us to use the DCT, so we use the fact that $\nu$ is $\mu$-stationary to argue as follows:
+	\[
+	\begin{aligned}
+		& \int_G f_\nu(\gamma^{-1}.z)(\gamma^{-1})'(z)  d\mu(\gamma) - f_\nu(z) = \int_G T_\mu(f_\nu)(z)  d\mu(\gamma) = \int_G \left( \frac{1}{2 \pi} \int_{0}^{2 \pi} \frac{d(\gamma_* \nu - \nu)(t)}{e^{it}-z} - \frac{1}{\gamma.\infty - z}\right) d\mu(\gamma) = \\ &= \frac{1}{2 \pi} \int_{G} \int_{0}^{2\pi} \frac{d(\gamma_* \nu - \nu)(t)}{e^{it}-z} d\mu(\gamma) - \int_{G}\frac{1}{\gamma.\infty - z} d\mu(\gamma) = \frac{1}{2 \pi} \int_{0}^{2\pi} \int_{G}  \frac{d(\gamma_* \nu - \nu)(t)}{e^{it}-z} d\mu(\gamma) - \int_{G}\frac{1}{\gamma.\infty - z} d\mu(\gamma) = \\ 
+		&= \int_{G}\frac{1}{z - \gamma.\infty} d\mu(\gamma).
+	\end{aligned}
+	\]
+%	\[
+%	\left( \sum_\Gamma \mu(\gamma) T_{\gamma^{-1}} \right) \left(  \frac{1}{2 \pi} \int_{0}^{2 \pi} \frac{d\nu(t)}{e^{it} -  z} \right)  = \frac{1}{2 \pi} \int_{0}^{2 \pi} \frac{d (\mu * \nu - \nu) (t)}{e^{it} - z}  - \int_\Gamma \frac{d \mu(\gamma)}{\gamma.\infty - z} = \int_\Gamma \frac{d \mu(\gamma)}{z - \gamma.\infty},
+%	\]
+	which is precisely \eqref{main equation, simp}.
 \end{proof}
 
-\textbf{Remark.} Keep in mind that the value $l_{\mu, \nu} := \int_{G}p_\nu(\gamma^{-1}.0)  d \mu(\gamma)$ is a constant which only depends on $\mu$ and $\nu$. Observe that if the subgroup $\Gamma$ generated by the support of $\mu$ is discrete, we obtain the Furstenberg's formula for the drift (see \cite{furstenberg1963noncommuting}), which does not depend on the choice of $\nu$ as well.
-
-Now, let us recall the Fourier expansion of the logarithm of the Poisson kernel:
-\begin{equation}
-	\label{Fourier series for a familiar log}
-	\log(1 - 2x \cos(t) + x^2) = -2 \sum_{k=1}^{\infty} \frac{x^k}{k} \cos(k t)
-\end{equation}
-where the right series converges uniformly for $|x| < 1$. From this we can deduce
-\[
-\begin{aligned}
-	\hat{c}_B(|z|e^{i \theta}, e^{i t}) &= \log(1 - |z|^2) - \log(1 - 2|z| \cos(\theta - t) + |z|^2) \stackrel{\eqref{Fourier series for a familiar log}}{=} \\ 
-								&\stackrel{\eqref{Fourier series for a familiar log}}{=} \log(1 - |z|^2) + 2 \sum_{k=1}^\infty \frac{|z|^k}{k} \cos(k(\theta - t))
-\end{aligned}
-\]
-for all $|z| < 1$. In particular, denoting $\xi = e^{it}$, we can switch from the trigonometric basis to the exponential one to obtain
-\begin{equation}
-	\label{Fourier series of log pois}
-	\begin{aligned}
-		\hat{c}_B(z, \xi) &= \log(1 - |z|^2) + \sum_{k=1}^\infty \frac{z^k}{k} e^{-i k t} + \frac{\overline{z}^k}{k} e^{i k t} = \\ 
-		&= \log(1 - |z|^2) + \sum_{k=1}^\infty \frac{z^k}{k} \xi^{-k} + \frac{\overline{z}^k}{k} \xi^k
-	\end{aligned}
-\end{equation}
-
-Now, assume that $\nu \sim \sum_{k \in \mathbb{Z}} a_k e^{i k t}$, where
-\begin{equation}
-	\label{spectral measure}
-	a_k := \frac{1}{2\pi} \int_0^{2 \pi} e^{- i k t} d\nu(t).
-\end{equation} 
-Combining \eqref{Fourier series of log pois} and \eqref{spectral measure}, we obtain
-
-\begin{equation}
-	\label{eq2}
-	p_\nu(z) = \log(1 - |z|^2) + \sum_{k=1}^\infty \frac{z^k}{k} a_k + \frac{\overline{z}^k}{k} a_{-k}.
-\end{equation}
-
-\textbf{Remark.} The equation \eqref{eq2} proves that $p_\nu(z)$ uniquely defines $\nu$, as we can recover the coefficients by considering
-
-\[
-a_k = \frac{1}{(k-1)!} \left. \dfrac{\partial^k}{\partial z^k}  \right|_{z=0} (p_\nu(z) - \log(1 - |z|^2))  , \quad k > 0,
-\]
-\[
-a_{-k} = \frac{1}{(k-1)!} \left. \dfrac{\partial^k}{\partial \overline{z}^k} \right|_{z=0} (p_\nu(z) - \log(1 - |z|^2)), \quad k > 0.
-\]
-Combining with \eqref{Poisson stat}, we get
-\[
-\begin{aligned}
-	& \left( \int_G \log(1 - |\gamma^{-1}.z|^2) d \mu(\gamma) - \log(1 - |z|^2) \right)  + \\ 
-	&+ \left(  \int_G f_+(\gamma^{-1}.z)  d \mu(\gamma) - f_+(z)\right)  + \\ 
-	&+ \left( \int_G f_-(\overline{\gamma^{-1}.z})  d \mu(\gamma) - f_-(\overline{z}) \right)  = l_{\mu, \nu},
-\end{aligned}
-\]
-where
-\[
-\begin{gathered}
-	f_+(z) := \sum_{k=1}^\infty \frac{a_k}{k} z^k, \\
-	f_-(z) := \sum_{k=1}^\infty \frac{a_{-k}}{k} z^k.
-\end{gathered}
-\]
-Keep in mind that the integrability condition allows us to split the integral. Moreover, we can immediately observe that both $f_+$ and $f_-$ are holomorphic inside $\mathbb{D}$ as $\nu$ is a probability measure, and $|a_k| \le 1$ for all $k \in \mathbb{Z}$.
-
-We can simplify to get
-\begin{equation}
-	\label{harmonic functions 1}
-	\int_G \log(|(\gamma^{-1})'(z)|) d \mu(\gamma) + \int_G \left( f_+(\gamma^{-1}.z) - f_+(z)\right)  d \mu(\gamma) + \int_G \left( f_-(\overline{\gamma^{-1}.z}) - f_-(\overline{z})\right)  d \mu(\gamma) = l_{\mu, \nu}.
-\end{equation}
-
-Now we observe that \eqref{harmonic functions 1} features a sum of a harmonic, holomorphic and an antiholomrphic function being constant. Moreover, recall that
-\[
-\log(|(\gamma^{-1})'(z)|) = Re(\log((\gamma^{-1})'(z))) = \frac{1}{2} (\log((\gamma^{-1})'(z)) + \overline{\log((\gamma^{-1})'(z))})
-\]
-is precisely the harmonic decomposition of $\log(|(\gamma^{-1})'(z)|)$. We fix the principal branches of the complex logarithm to make this equality unambiguous which is possible due to $\gamma'(z) \ne 0$ for any $\gamma \in PSU(1,1)$ and $|z| < 1$.
-
-Now observe that a sum of a holomorphic function and an antiholomorphic function is constant iff both parts are constant as well, so we get
-\begin{equation}
-	\frac{1}{2} \int_G \log((\gamma^{-1})'(z))  d\mu(\gamma) + \int_G f_+(\gamma^{-1}.z) d\mu(\gamma) - f_+(z) = l_{\mu, \nu}
-\end{equation}
-\begin{equation}
-	\frac{1}{2} \int_G \log(\overline{(\gamma^{-1})'(z)}) d\mu(\gamma) + \int_G f_-(\overline{\gamma^{-1}.z})d\mu(\gamma) - f_-(\overline{z}) = l_{\mu, \nu}
-\end{equation}
-
-These equations are, essentially, the same due to the symmetry $a_k = \overline{a_{-k}}$, as we assume that $\nu$ is positive. Let us redenote $f_+(z) = F_\nu(z)$, so that we are trying to solve
-\begin{equation}
-	\frac{1}{2} \int_G \log((\gamma^{-1})'(z))  d\mu(\gamma) + \int_G F_\nu(\gamma^{-1}.z)  d\mu(\gamma) - F_\nu(z) = l_{\mu, \nu}.
-\end{equation}
-Differentiating both sides and making use of the moment condition again to interchange the derivative and the integrals, we can get rid of the logarithm and reduce the equation to
-\begin{equation}
-	\label{main equation}
-	\frac{1}{2} \int_G \frac{(\gamma^{-1})''(z)}{(\gamma^{-1})'(z)}  d\mu(\gamma) + \int_G f_\nu(\gamma^{-1}.z)(\gamma^{-1})'(z)  d\mu(\gamma) - f_\nu(z) = 0,
-\end{equation}
-where $f_\nu(z) = \sum_{k=0}^{\infty} a_{k+1} z^k$.
-Using \eqref{poles of the log derivative}, we can rewrite \eqref{main equation} as follows:
-\begin{equation}
-	\label{main equation, simp}
-	\int_G f_\nu(\gamma^{-1}.z)(\gamma^{-1})'(z)  d\mu(\gamma) - f_\nu(z) = \int_G \frac{d \mu(\gamma)}{z - \gamma.\infty}, \quad |z| < 1.
-\end{equation}
-
-Thus, we have proven the first part of Theorem \ref{T:main result}.
+\textbf{Remark.} In the above proof we didn't assume anything about $\mu$ except the moment condition. If we focus on countable supported $\mu$, then \eqref{main equation, simp} holds for all $z \in \overline{\mathbb{C}}$ outside of the poles of $\int_G \frac{d \mu(\gamma)}{z - \gamma.\infty}$.
 
 \begin{theorem}
-	Let $\mu$ be a complex finite Borel measure with the finite first moment with respect to the hyperbolic metric. Consider a probability measure $\nu$ on $S^1$ admitting the Fourier series $\nu \sim \sum_{k \in \mathbb{Z}} a_k z^k$. Then $\nu$ is $\mu$-stationary implies that the function $f_\nu(z) = \sum_{k=0}^\infty a_{k+1} z^k$ satisfies the functional equation \eqref{main equation, simp} for $|z| < 1$.
+	\label{converse}
+	Let $\mu$ be a probability measure on $G=PSU(1,1)$ satisfying the following moment condition:
+	\begin{equation}
+		\int_{G} \log\left( \frac{1 + |\gamma.z| }{1 - |\gamma.z|} \right)  d |\mu| (\gamma) < \infty
+	\end{equation}
+	for any $z \in \mathbb{D}$. Also, assume that $(S^1, \nu)$ is the Poisson boundary of $(G, \mu)$. If $f_{\nu'}(z)$ satisfies \eqref{main equation, simp} for all $z \in \mathbb{D}$, then $\nu' = \nu$. In other words, $\nu$ is the $\mu$-stationary measure if and only if $f_{\nu}(z)$ solves \eqref{main equation, simp}.
 \end{theorem}
+
+\begin{proof}
+	Observe that \eqref{main equation, simp} is equivalent to saying that 
+	\begin{gather*}
+		\lambda_{z_0} : G \rightarrow \mathbb{C}, \quad \gamma \mapsto f_{\nu}(\gamma^{-1}.z_0)(\gamma^{-1})'(z_0) - \frac{1}{z_0 - \gamma.\infty}, \\
+		\lambda'_{z_0} : G \rightarrow \mathbb{C}, \quad \gamma \mapsto f_{\nu'}(\gamma^{-1}.z_0)(\gamma^{-1})'(z_0) - \frac{1}{z_0 - \gamma.\infty}
+	\end{gather*}
+	are both $\mu$-harmonic functions on $G$. The Poisson representation allows us to rewrite both $\lambda_{z_0}$ and $\lambda'_{z_0}$ as follows:
+	\[
+	\begin{aligned}
+		\lambda_{z_0}(id) 
+		&= \frac{1}{2 \pi} \int_{0}^{2 \pi} \left(  \lim\limits_{\gamma \rightarrow e^{it}} f_{\nu}(\gamma^{-1}.z_0)(\gamma^{-1})'(z_0) - \frac{1}{z_0 - \gamma.\infty} \right) d\nu(t) = \\ 
+		&= \frac{1}{2 \pi} \int_{0}^{2 \pi} \left(  \lim\limits_{\gamma \rightarrow e^{it}} f_{\nu}(\gamma^{-1}.z_0)(\gamma^{-1})'(z_0) \right) - \frac{1}{z_0 - e^{it}}  d\nu(t).
+	\end{aligned}
+	\]
+	Similarly, we have
+	\[
+	\lambda'_{z_0}(id) = \frac{1}{2 \pi} \int_{0}^{2 \pi} \left( \lim\limits_{\gamma \rightarrow e^{it}} f_{\nu'}(\gamma^{-1}.z_0)(\gamma^{-1})'(z_0) \right) - \frac{1}{z_0 - e^{it}}  d\nu(t)
+	\]
+	Because $f_{\nu'}$ satisfies the growth condition, the limit $\lim\limits_{\gamma \rightarrow e^{it}} f_{\nu'}(\gamma^{-1}.z_0)(\gamma^{-1})'(z_0)$ vanishes for almost all $t$ due to \cite[Equation 2.1.8]{book:738388}:
+	\[
+	\begin{aligned}
+		f_{\nu}(\gamma^{-1}.z_0)(\gamma^{-1})'(z_0) & = f_{\nu}(\gamma^{-1}.z_0)(\gamma^{-1})'(z_0) \dfrac{|(\gamma^{-1})'(z_0)|}{1 - |\gamma^{-1}.z_0|} = \dfrac{C}{|\overline{b} z_0 + \overline{a}|(|\overline{b} z_0 + \overline{a}| - |a z_0 + b|)} = \\ 
+		&= \dfrac{C (|\overline{b} z_0 + \overline{a}| + |a z_0 + b|)}{|\overline{b} z_0 + \overline{a}|(|\overline{b} z_0 + \overline{a}|^2 - |a z_0 + b|^2)}.
+	\end{aligned}
+	\]
+	 (compare \cite[eq 2.1.8]{book:738388}), leaving us with
+	\[
+	\lambda_{z_0}(id) = f_{\nu'}(z_0) = \frac{1}{2 \pi} \int_{0}^{2 \pi}\frac{1}{e^{it} - z_0}  d\nu(t) = f_\nu(z_0).
+	\]
+\end{proof}
 
 
 \section{Squeezing water from a stone: a deep dive into \eqref{main equation, simp}}
@@ -627,7 +500,7 @@ In this section we will explore the functional equation \eqref{main equation, si
 \end{proof}
 
 \begin{corollary}
-	Let $\mu$ be a probability measure with finite support. Then $\limsup_{k \rightarrow \infty} |a_k|^{1/k} > 0$ for every $\mu$-stationary measure with the Fourier series $\nu \sim \sum_{k \in \mathbb{Z}} a_k e^{i k t}$.
+	Let $\mu$ be a probability measure with finite support. Then $\limsup\limits_{k \rightarrow \infty} |a_k|^{1/k} > 0$ for every $\mu$-stationary measure with the Fourier series $\nu \sim \sum_{k \in \mathbb{Z}} a_k e^{i k t}$.
 \end{corollary}
 \begin{proof}
 	Consider a $\mu$-stationary measure $\nu$ with $\limsup_{k \rightarrow \infty} |a_k|^{1/k} = 0$. Then $f_\nu(z)$ is an entire function which solves \eqref{main equation, simp} for $|z| < 1$. The LHS of \eqref{main equation, simp} can be analytically continued to a meromorphic function on $\mathbb{C}$, therefore, $f_\nu(z)$ solves \eqref{main equation, simp} for all $\mathbb{C}$. This allows us to apply Theorem \ref{entire solutions}, yielding a contradiction.
@@ -658,28 +531,27 @@ In this section we will explore the functional equation \eqref{main equation, si
 
 Due to Theorem \ref{T:Smirnov} we know that $f_\nu(z)$ is holomorphic on $\overline{\mathbb{C}} \setminus \mathbb{T}$. Moreover, \eqref{main equation, simp} makes sense for all $z \in \overline{\mathbb{C}}$ outside of the poles of RHS (namely, $\gamma.\infty$ for all $\gamma \in \text{supp} \mu$). 
 
-\begin{theorem}[Theorem \ref{T:main result}]
-	\label{T:Cauchy transform solves main eq}
-	A probability measure $\nu$ is $\mu$-stationary only if $f_\nu(z)$ solves \eqref{main equation, simp} for all $z \in \overline{\mathbb{C}} \setminus (\mathbb{T} \cup \{\gamma.\infty\}_{\gamma \in \text{supp} \mu} )$.
-\end{theorem}
-\begin{proof}
-	Let $z \in \overline{\mathbb{C}} \setminus (\mathbb{T} \cup \{\gamma.\infty\}_{\gamma \in \text{supp} \mu} )$. Due to Theorem \ref{weighted composition ops} we have
-%	The RHS is also holomorphic outside of the unit disk, we invoke Smirnov's theorem [ref].
-	\[
-	\begin{aligned}
-		T_\mu \left( \frac{1}{2 \pi} \int_{0}^{2 \pi} \frac{d\nu(t)}{e^{it} -  z} \right) &= \frac{1}{2 \pi i}  \int_{\mathbb{T}} \left(  \frac{1}{\gamma.e^{it} -  z} - \frac{1}{\gamma.\infty - z} - \frac{1}{e^{it} -  z} \right)  d \nu(t) = \\ 
-		&= \frac{1}{2 \pi i}  \int_{\mathbb{T}} \frac{d \gamma_* \nu(w)}{e^{it} -  z}  -  \frac{1}{2 \pi i}\int_{\mathbb{T}} \frac{d \nu(w)}{e^{it} -  z}  - \frac{1}{\gamma.\infty - z} .
-	\end{aligned}
-	\]
-	
-	However, as $\nu$ is $\mu$-stationary, we can see that
-	\[
-	\left( \sum_\Gamma \mu(\gamma) T_{\gamma^{-1}} \right) \left(  \int_{\mathbb{T}} \frac{d \nu(w)}{w(w - z)} \right)  = \int_{\mathbb{T}} \frac{d (\mu * \nu - \nu) (w)}{w(w - z)}  - \int_\Gamma \frac{d \mu(\gamma)}{\gamma.\infty - z} = \int_\Gamma \frac{d \mu(\gamma)}{z - \gamma.\infty},
-	\]
-	which is precisely \eqref{main equation, simp}.
-\end{proof}
+%\begin{theorem}[Theorem \ref{T:main result}]
+%	\label{T:Cauchy transform solves main eq}
+%	A probability measure $\nu$ is $\mu$-stationary only if $f_\nu(z)$ solves \eqref{main equation, simp} for all $z \in \overline{\mathbb{C}} \setminus (\mathbb{T} \cup \{\gamma.\infty\}_{\gamma \in \text{supp} \mu} )$.
+%\end{theorem}
+%\begin{proof}
+%	Let $z \in \overline{\mathbb{C}} \setminus (\mathbb{T} \cup \{\gamma.\infty\}_{\gamma \in \text{supp} \mu} )$. Due to Theorem \ref{weighted composition ops} we have
+%%	The RHS is also holomorphic outside of the unit disk, we invoke Smirnov's theorem [ref].
+%	\[
+%	\begin{aligned}
+%		T_\mu \left( \frac{1}{2 \pi} \int_{0}^{2 \pi} \frac{d\nu(t)}{e^{it} -  z} \right) &= \frac{1}{2 \pi i}  \int_{\mathbb{T}} \left(  \frac{1}{\gamma.e^{it} -  z} - \frac{1}{\gamma.\infty - z} - \frac{1}{e^{it} -  z} \right)  d \nu(t) = \\ 
+%		&= \frac{1}{2 \pi i}  \int_{\mathbb{T}} \frac{d \gamma_* \nu(w)}{e^{it} -  z}  -  \frac{1}{2 \pi i}\int_{\mathbb{T}} \frac{d \nu(w)}{e^{it} -  z}  - \frac{1}{\gamma.\infty - z} .
+%	\end{aligned}
+%	\]
+%	
+%	However, as $\nu$ is $\mu$-stationary, we can see that
+%	\[
+%	\left( \sum_\Gamma \mu(\gamma) T_{\gamma^{-1}} \right) \left(  \int_{\mathbb{T}} \frac{d \nu(w)}{w(w - z)} \right)  = \int_{\mathbb{T}} \frac{d (\mu * \nu - \nu) (w)}{w(w - z)}  - \int_\Gamma \frac{d \mu(\gamma)}{\gamma.\infty - z} = \int_\Gamma \frac{d \mu(\gamma)}{z - \gamma.\infty},
+%	\]
+%	which is precisely \eqref{main equation, simp}.
+%\end{proof}
 
-\textbf{Remark.} This argument is independent on the proof given in Section \ref{The log-Poisson transform of a stationary measure}.
 
 \begin{theorem}[Corollary \ref{C:main corollary}.2]
 	Let $\mu$ be a countably supported probability measure. If \\ $\limsup\limits_{n \rightarrow \infty} \left\| \int_G \frac{d \mu^{*n}(\gamma)}{z - \gamma.\infty} \right\|_1 = \infty$, then there are no $\mu$-stationary measures with $L^{1+\varepsilon}(S^1, Leb)$-density for any $\varepsilon > 0$.
@@ -700,7 +572,17 @@ Due to Theorem \ref{T:Smirnov} we know that $f_\nu(z)$ is holomorphic on $\overl
 	Consider $\mu = \delta_\gamma$ for a non-elliptic $\gamma \in PSU(1,1)$. Then the $H^1$-norm of $\frac{1}{z - \gamma^n.\infty}$ goes to infinity as $n \rightarrow \infty$, so there are no absolutely continuous measures with densities in $L^{1 + \varepsilon}(S^1)$, as we expected.
 \end{example}
 
-However, as simple as this criterion seems, given a measure $\mu$ supported on a lattice in $PSU(1,1)$, it is not at all easy to estimate $\left\| \int_G \frac{d \mu^*n(\gamma)}{z - \gamma.\infty} \right\|_1$, therefore, a potential argument should rely on how non-uniformly the poles will be distributed in small neighbourhoods of $\mathbb{T}$. Nevertheless, we will make use of this simple idea in Section 5 to deliver the proof of the singularity conjecture.
+However, as simple as this criterion seems, given a measure $\mu$ supported on a lattice in $PSU(1,1)$, it is not at all easy to estimate $\left\| \int_G \frac{d \mu^{*n}(\gamma)}{z - \gamma.\infty} \right\|_1$, therefore, a potential argument should rely on a very precise analysis of how non-uniformly the poles will be distributed in small neighbourhoods of $\mathbb{T}$.
+
+Finally, recall that in the proof of Theorem \ref{converse} we introduced harmonic functions
+\[
+\lambda_{z_0} : G \rightarrow \mathbb{C}, \quad \gamma \mapsto f_{\nu}(\gamma^{-1}.z_0)(\gamma^{-1})'(z_0) - \frac{1}{z_0 - \gamma.\infty}
+\]
+for every $|z_0| < 1$. In particular, we can take $z_0 = 0$, and rearrange the formula to get
+\[
+f(\gamma^{-1}.0) = \dfrac{\lambda_0(\gamma) - \overline{\gamma.0}}{(\gamma^{-1})'(0)}.
+\]
+In particular, this formula shows that all information about the harmonic measure $\nu$ is encoded in the behaviour of a single harmonic function on $G$. 
 
 \subsection{Functional-analytic necessary condition for existence of absolutely continuous stationary measures}
 
@@ -795,7 +677,7 @@ This proves Corollary \ref{functional-analytic necessary condition}.
 %To conclude this subsection, we want to remind the reader that the difficulty of this problem lies precisely in the fact that $T_\mu$ does \textbf{not} commute with the backward shift $S^*$, which disallows us from easily arguing that $T_\mu$ preserves the $S^*$-invariant subspaces in any way.
 \subsection{When the Lebesgue measure is stationary?}
 
-Earlier we have reproved the well-known fact that the Lebesgue measure cannot be a stationary measure if $\mu$ has finite support. To understand this case better, we need to look at \eqref{main equation, simp} and observe that $f_\nu$ vanishes, leaving us with vanishing of the following \textbf{Borel series}.
+Earlier we have reproved the well-known theorem of J. Bourgain that the Lebesgue measure cannot be a stationary measure if $\mu$ has finite support. To understand this case better, we need to look at \eqref{main equation, simp} and observe that $f_\nu$ vanishes, leaving us with vanishing of the following \textbf{Borel series}.
 \begin{equation}
 	\label{Lebesgue equation}
 	\sum_{\gamma} \frac{\mu(\gamma)}{z - \gamma.\infty} = 0, \quad |z| < 1.
@@ -868,182 +750,57 @@ Finally, we would like to remark that the proof of \cite[Theorem 3]{brownsums} i
 	\]
 \end{enumerate}
 
-\section{The proof of the singularity conjecture}
+\subsection{A criterion for singularity}
 \label{The proof of the singularity conjecture}
-\subsection{A motivating example}
+\begin{theorem}
+	Let $\mu$ be a finitely supported probability measure on a discrete subgroup $\Gamma \leq G$. Then one of the following statements holds.
+	\begin{itemize}
+		\item The harmonic measure $\nu$ is singular with respect to the Lebesgue measure.
+		\item The subspace $\text{span}\{ (S^*)^k (f_\nu)(z) \}_{k \ge 0} \subset H^p$ is dense for all $p < 1$. In other words, $f_\nu \in H^p$ is a cyclic function.
+	\end{itemize}
+\end{theorem}
+\begin{proof}
+	Assume that $\nu$ is not cyclic, that is, the closure of the subspace $\text{span}\{ (S^*)^k (f_\nu)(z) \}_{k \ge 0}$ is not the entire $H^p$ for a fixed $p < 1$. Then, due to a theorem of Aleksandrov, $f_\nu(z) \in H^p$ admits a pseudocontinuation $\tilde{f}_\nu(z) \in H^p(\mathbb{D}_e)$. Because $\mu$ has finite support, the operator $T_\mu$ respects pseudocontinuations. In particular, both the restriction of $f_\nu(z)$ on $\mathbb{D}_e$ and $\tilde{f}_\nu(z)$ are taken to the same function $\sum_{\gamma} \frac{\mu(\gamma)}{z - \gamma.\infty}$. Therefore, arguing in a similar way as in the proof of Theorem \ref{converse}, we get that the function $\lambda_{z_0} : \gamma \rightarrow (f_\nu(\gamma^{-1}.z_0) - \tilde{f}_\nu(z_0)) (\gamma^{-1})'(z_0)$ is $\mu$-harmonic, and it converges to zero almost surely when $\gamma \rightarrow \xi \in S^1$. Therefore, $f_\nu(z) \equiv \tilde{f}_\nu(z)$ for all $z \in \mathbb{D}_e$, so due to the Fatou's theorem, $\nu$ is a singular measure.  
+\end{proof}
+\subsubsection{A motivating example}
 We will start this section with a simple but an instructive example.
 \begin{example}
-	Consider a random walk $(X_n)$ generated by one single atom supported on a non-elliptic element $\gamma \in PSU(1,1)$. Suppose we were to ``prove'' that the hitting measure for this random walk is singular without actually knowing in advance that it is atomic. Even in this elementary case we know that $X_n$ converges to $S^1$ almost surely, so, on the level of Cauchy-Szeg\H{o} transforms, we know that 
+	Consider a random walk $(X_n)$ generated by one single atom supported on a non-elliptic element $\gamma \in PSU(1,1)$. Suppose we were to ``prove'' that the hitting measure for this random walk is singular without actually knowing in advance that it is atomic. Even in this elementary case we know that $X_n$ converges to $S^1$ almost surely, so, on the level of Cauchy transforms, we know that 
 	\[
-	\mathbb{E}\left[\frac{1}{X_n.\infty - z}\right] \rightarrow \mathbb{E}\left[\frac{1}{X_\infty.\infty - z}\right]
+	\mathbb{E}\left[\frac{1}{1 - (\overline{X_n.0}) z}\right] \rightarrow \mathbb{E}\left[\frac{1}{1 - (\overline{X_\infty})z}\right]
 	\]
 	on compact subsets of $\mathbb{D}$. However, because the random walk is so simple, we can explicitly write
 	\[
-	\mathbb{E}\left[\frac{1}{X_n.\infty - z}\right] = \frac{1}{\gamma^n.\infty - z},
+	\mathbb{E}\left[\frac{1}{1 - (\overline{X_n.0}) z} \right] = \frac{1}{1 - (\overline{\gamma^n.0}) z},
 	\]
 	and it is not difficult to prove (see \cite[Lemma 6.2.23]{cimahardy}) that
 	\[
-	\mathbb{E}\left[\frac{1}{X_n.\infty - z}\right] = \frac{1}{\gamma^n.\infty - z} \xrightarrow{H^p} \frac{1}{\gamma_+ - z} = \mathbb{E}\left[\frac{1}{X_\infty.\infty - z}\right].
+	\mathbb{E}\left[\frac{1}{1 - (\overline{X_n.0}) z} \right] = \frac{1}{1 - (\overline{\gamma^n.0}) z} \xrightarrow{H^p} \frac{1}{1 - (\overline{\gamma_+}) z} = \mathbb{E}\left[ \frac{1}{1 - (\overline{X_\infty}) z} \right].
 	\]
 	Moreover, it is also not difficult to work out that
 	\[
-	\cfrac{1}{\cfrac{\gamma^n.\infty}{|\gamma^n.\infty|} - z} \xrightarrow{H^p} \frac{1}{\gamma_+ - z},
+	\cfrac{1}{1 - \overline{\frac{\gamma^n.0}{|\gamma^n.0|}} z} \xrightarrow{H^p} \frac{1}{1 - (\overline{\gamma_+}) z},
 	\]
-	but $\cfrac{1}{\cfrac{\gamma^n.\infty}{|\gamma^n.\infty|} - z} \in H^p \cap \overline{H^p_0}$, so the limit has to be in $H^p \cap \overline{H^p_0}$ as well.
+	but $\cfrac{1}{1 - \overline{\frac{\gamma^n.0}{|\gamma^n.0|}} z} \in \overline{\text{span}}^{H^p} \left\lbrace \frac{1}{1 - \xi z} : |\xi| = 1 \right\rbrace$, so the limit has to be in $\overline{\text{span}}^{H^p} \left\lbrace \frac{1}{1 - \xi z} : |\xi| = 1 \right\rbrace$ as well.
 \end{example}
 
-This section is dedicated to showing that the very same phenomenon holds for \textbf{any} admissible random walk with the finite first moment on a non-elementary discrete subgroup of $PSU(1,1)$, yielding a complete classification of $\mu$-stationary measures in the discrete case.
+\begin{conjecture}
+	Let $\mu$ be a probability measure on a discrete subgroup $\Gamma \leq PSU(1,1)$ satisfying the finite first moment. Then the sequence $\left( \mathbb{E} \left[ \frac{1}{X_n.0 - z} \right]\right)_{n \ge 1} $ converges in $H^p$ to a function in $H^p \cap \overline{H^p_0}$.
+\end{conjecture}
 
-\subsection{Main argument}
-
-
-Let $\mu$ be an admissible probability measure with the finite first moment on a non-elementary discrete subgroup $\Gamma \subset PSU(1,1)$ generating a random walk which we will denote by $(X_n)$. We will define two sequences of functions
-
-\begin{gather}
-	g_n(z) := \mathbb{E} \left[\frac{1}{X_n.\infty - z}\right] = \mathbb{E} \left[\frac{\overline{X_n.0}}{1 - \overline{X_n.0} z}\right], \\
-	h_n(z) := \mathbb{E} \left[\frac{1}{\frac{X_n.\infty}{|X_n.\infty|} - z}\right] = \mathbb{E} \left[\frac{\overline{X_n.0}}{|X_n.0| - \overline{X_n.0} z}\right].
-\end{gather}
-
-Because almost surely $X_n.0$ converges to a point $X_\infty \in S^1$, by taking inverses, we see that $X_n.\infty$ converges to $S^1$ almost surely as well. Via a slight abuse of notation, let us denote this limit by $X_\infty.\infty$. Therefore,
-\[
-\lim\limits_{n \rightarrow \infty} \mathbb{E} \left[\frac{1}{X_n.\infty - z}\right] = \mathbb{E} \left[\frac{1}{X_\infty.\infty - z}\right] = f_\nu(z)
-\]
-for any $|z| < 1$. The convergence can be trivially upgraded to convergence on compact subsets of $\overline{\mathbb{C}} \setminus \mathbb{T}$, and this fact precisely corresponds to the $wk^*$-convergence of $\mu^{*n}$ to the hitting measure $\nu$. Of course, this does not show singularity by itself, but we aim to show that the rational approximation induced by $g_n$ converges in the stronger $H^p$-topology for all $p \in (0, 1)$, ``forcing'' singularity by pinning down $f_\nu(z)$ into an exotic subspace $H^p \cap \overline{H^p_0}$, which has trivial intersections with $H^{1 + \varepsilon}$ for any $\varepsilon > 0$ and $p \in (0,1)$ due to the Riesz-Riesz theorem (see \cite[Theorem 1]{Ale79} for original argument, or more accessible \cite[Corollary 6.2.12]{cimahardy}). 
-
-\begin{theorem}
-	\label{convergence in H^p}
-	Let $(X_n)$ be an admissible random walk on a non-elementary discrete subgroup $\Gamma \leq PSU(1,1)$ with the finite first moment. Then for every $0 < p < 1$ the following statements hold:
-	\begin{enumerate}
-		\item $g_n(z) \xrightarrow{H^p} f_\nu(z)$.		
-		\item $\lim\limits_{n \rightarrow \infty} d_{H^p}(g_n, h_n) = 0$.
-	\end{enumerate}
-\end{theorem}
-
-Before we prove the theorem, we need the following standard lemma that is commonly used to work with $H^p$-spaces for $p \in (0, 1)$.
-
-\begin{lemma}[\cite{boundedgarnett}]
-	\label{Hp estimate positive real}
-	Let $f(z) \in \mathcal{H}(\mathbb{D})$ with $Re(f(z)) > 0$ for all $z \in \mathbb{D}$. Then for all $p \in (0, 1)$ we have
-	\[
-	\left\| f \right\|^p_p \le A_p |f(0)|^p,
-	\]
-	where $A_p = 1 / \cos(p \pi / 2)$. 
-\end{lemma}
-
-\begin{proof}[Proof of Theorem \ref{convergence in H^p}]
-	\indent
-	\begin{itemize}
-		\item 
-		
-		Let $\delta > 0, \theta \in \mathbb{R}$. In order to get the necessary estimate, we need to explicitly keep track of the probability space on which $X_n : \Omega \rightarrow \Gamma$ and the limit $X_\infty.\infty: \Omega \rightarrow \mathbb{T}$ are defined. Define an event 
-		\[
-		\begin{aligned}
-			E_{\theta, \delta, N}  := & \{ \omega \in \Omega : |X_\infty.\infty - e^{i \theta}| < \delta \} \cup \\  \cup & \{\omega \in \Omega : | X_n.\infty - e^{i \theta}| < 2 \delta \  \forall n > N\} \cup \\ \cup & \{\omega \in \Omega : \exists n > N \  X_n.0 = 0 \}.
-		\end{aligned}		
-		\]
-		
-		Consider two integrals:
-		\begin{gather}
-			\left| \int_{\Omega \setminus E_{\theta, \delta, N}} \frac{1}{X_n.\infty - e^{i \theta}} - \frac{1}{X_\infty.\infty - e^{i \theta}} d \mathbb{P}(\omega) \right| \\
-			\left| \int_{E_{\theta, \delta, N}} \frac{1}{X_n.\infty - e^{i \theta}} - \frac{1}{X_\infty.\infty - e^{i \theta}} d \mathbb{P}(\omega) \right|.
-		\end{gather}
-		We will proceed by estimating these two integrals in two different ways. The first integral can be treated by noticing that the random walk conditioned on the complement to $E_{\theta, \delta}$ almost surely misses a neighbourhood $e^{i \theta}$ starting from $n = N$:
-		\[
-		\begin{aligned}
-			& \left| \int_{\Omega \setminus E_{\theta, \delta, N}} \frac{1}{X_n.\infty - e^{i \theta}} - \frac{1}{X_\infty.\infty - e^{i \theta}} d \mathbb{P}(\omega) \right| \le
-			\int_{\Omega \setminus E_{\theta, \delta, N}} \left| \frac{1}{X_n.\infty - e^{i \theta}} - \frac{1}{X_\infty.\infty - e^{i \theta}} \right| d \mathbb{P}(\omega) = \\ 
-			& = \int_{\Omega \setminus E_{\theta, \delta, N}} \frac{|X_\infty.\infty - X_n.\infty|}{|X_n.\infty - e^{i \theta}| |X_\infty.\infty - e^{i \theta}|} d \mathbb{P}(\omega) \le \frac{1}{2 \delta^2} \int_{\Omega \setminus E_{\theta, \delta, N}} |X_\infty.\infty - X_n.\infty| d \mathbb{P}(\omega)
-		\end{aligned}
-		\]
-		for any $n > N$. A straightforward application of DCT yields that as $n \rightarrow \infty$, the expectation $\int_{\Omega \setminus E_{\theta, \delta, N}} |X_\infty - X_n| d \mathbb{P}(\omega)$ goes to zero. This is one part of the argument that requires discreteness, as we want to claim that $|X_\infty - X_n|$ is uniformly bounded when conditioned on non-returning to zero (there is $\gamma \in \Gamma$ so that $|\gamma.0|$ is minimal but positive)
-		
-		As for the second integral, we observe that the probability of $E_{\theta, \delta, N}$ goes to zero as $\delta \rightarrow 0$, because the hitting measure is non-atomic. So, we can separate the integral like this:
-		
-		\[
-		\left| \int_{E_{\theta, \delta, N}} \frac{1}{X_n.\infty - e^{i \theta}} - \frac{1}{X_\infty.\infty - e^{i \theta}} d \mathbb{P}(\omega) \right|^p \le \left| \int_{E_{\theta, \delta, N}} \frac{1}{X_n.\infty - e^{i \theta}} d \mathbb{P}(\omega) \right|^p + \left| \int_{E_{\theta, \delta, N}} \frac{1}{X_\infty.\infty - e^{i \theta}} d \mathbb{P}(\omega) \right|^p .
-		\]
-		Keep in mind that the domain $E_{\theta, \delta, N}$ depends on integration variable $\theta$ itself, so we cannot just use Lemma \ref{convergence in H^p} to estimate the resulting $H^p$-norms. This requires us to introduce another integration variable as follows and then use the Fubini–Tonelli's theorem as the integrand is non-negative:
-		\[
-		\begin{aligned}
-			& \int_{0}^{2\pi} \left| \int_{E_{\theta, \delta, N}} \frac{1}{X_n.\infty - e^{i \theta}} d \mathbb{P}(\omega) \right|^p \frac{d \theta}{2 \pi} \le  \int_{0}^{2 \pi} \int_{0}^{2\pi} \left| \int_{E_{\theta, \delta, N}} \frac{1}{X_n.\infty - e^{i \tau}} d \mathbb{P}(\omega) \right|^p \frac{d \theta}{2 \pi} \frac{d \tau}{2 \pi} \stackrel{Fubini}{=} \\ & \stackrel{Fubini}{=} \int_{0}^{2 \pi} \int_{0}^{2\pi} \left| \int_{E_{\theta, \delta, N}} \frac{1}{X_n.\infty - e^{i \tau}} d \mathbb{P}(\omega) \right|^p \frac{d \tau}{2 \pi} \frac{d \theta}{2 \pi} = \int_{0}^{2 \pi} \left\| \int_{E_{\theta, \delta, N}} \frac{1}{X_n.\infty - z} d \mathbb{P}(\omega) \right\|_p^p  \frac{d \theta}{2 \pi} \stackrel{L \ref{Hp estimate positive real}}{\le} \\ 
-			& \stackrel{L \ref{Hp estimate positive real}}{\le} A_p \int_{0}^{2 \pi} \left| \int_{E_{\theta, \delta, N}} (X_n.0) d \mathbb{P}(\omega) \right|^p \frac{d\theta}{2 \pi} \le A_p \int_{0}^{2 \pi} \mathbb{P}( E_{\theta, \delta, N})^p \frac{d \theta}{2 \pi}.
-		\end{aligned}
-		\]
-		Same argument works for $X_{\infty}.\infty$:
-		\[
-		\begin{aligned}
-			& \int_{0}^{2\pi} \left| \int_{E_{\theta, \delta, N}} \frac{1}{X_{\infty}.\infty - e^{i \theta}} d \mathbb{P}(\omega) \right|^p \frac{d \theta}{2 \pi} \le  \int_{0}^{2 \pi} \int_{0}^{2\pi} \left| \int_{E_{\theta, \delta, N}} \frac{1}{X_{\infty}.\infty - e^{i \tau}} d \mathbb{P}(\omega) \right|^p \frac{d \theta}{2 \pi} \frac{d \tau}{2 \pi} \stackrel{Fubini}{=} \\ & \stackrel{Fubini}{=} \int_{0}^{2 \pi} \int_{0}^{2\pi} \left| \int_{E_{\theta, \delta, N}} \frac{1}{X_{\infty}.\infty - e^{i \tau}} d \mathbb{P}(\omega) \right|^p \frac{d \tau}{2 \pi} \frac{d \theta}{2 \pi} = \int_{0}^{2 \pi} \left\| \int_{E_{\theta, \delta, N}} \frac{1}{X_{\infty}.\infty - z} d \mathbb{P}(\omega) \right\|_p^p  \frac{d \theta}{2 \pi} \stackrel{L \ref{Hp estimate positive real}}{\le} \\ 
-			& \stackrel{L \ref{Hp estimate positive real}}{\le} A_p \int_{0}^{2 \pi} \left| \int_{E_{\theta, \delta, N}} (X_{\infty}.0) d \mathbb{P}(\omega) \right|^p \frac{d\theta}{2 \pi} \le A_p \int_{0}^{2 \pi} \mathbb{P}( E_{\theta, \delta, N})^p \frac{d \theta}{2 \pi}.
-		\end{aligned}
-		\]
-		Now we proceed to estimate the $H^p$-norms themselves. Fix $\delta, N$. Then for every $n > N$ we have
-		\[
-		\begin{aligned}
-			& \left\| \mathbb{E} \left[\frac{1}{X_n.\infty - z} - \frac{1}{X_\infty.\infty - z}\right]  \right\|_p^p = \int_0^{2 \pi} \left| \int_{\Omega} \frac{1}{X_n.\infty - e^{i \theta}} - \frac{1}{X_\infty.\infty - e^{i \theta}} d \mathbb{P}(\omega) \right|^p \frac{d \theta}{2 \pi} = \\
-			&= \int_0^{2 \pi} \left| \int_{\Omega \setminus E_{\theta, \delta, N}} \frac{1}{X_n.\infty - e^{i \theta}} - \frac{1}{X_\infty.\infty - e^{i \theta}} d \mathbb{P}(\omega) + \int_{E_{\theta, \delta, N}} \frac{1}{X_n.\infty - e^{i \theta}} - \frac{1}{X_\infty.\infty - e^{i \theta}} d \mathbb{P}(\omega) \right|^p \frac{d \theta}{2 \pi} \le \\
-			& \le \int_0^{2 \pi} \left| \int_{\Omega \setminus E_{\theta, \delta, N}} \frac{1}{X_n.\infty - e^{i \theta}} - \frac{1}{X_\infty.\infty - e^{i \theta}} d \mathbb{P}(\omega) \right|^p + \left| \int_{E_{\theta, \delta, N}} \frac{1}{X_n.\infty - e^{i \theta}} - \frac{1}{X_\infty.\infty - e^{i \theta}} d \mathbb{P}(\omega) \right|^p \frac{d \theta}{2 \pi}.
-		\end{aligned}
-		\]
-		Exploiting the above estimates, we get
-		\[
-		\begin{aligned}
-			& \int_0^{2 \pi} \left| \int_{\Omega \setminus E_{\theta, \delta, N}} \frac{1}{X_n.\infty - e^{i \theta}} - \frac{1}{X_\infty.\infty - e^{i \theta}} d \mathbb{P}(\omega) \right|^p + \left| \int_{E_{\theta, \delta, N}} \frac{1}{X_n.\infty - e^{i \theta}} - \frac{1}{X_\infty.\infty - e^{i \theta}} d \mathbb{P}(\omega) \right|^p \frac{d \theta}{2 \pi} \le \\ 
-			& \le \frac{1}{2^p\delta^{2p}} \int_0^{2 \pi} \left( \int_{\Omega \setminus E_{\theta, \delta, N}} |X_\infty.\infty - X_n.\infty| d \mathbb{P}(\omega) \right)^p \frac{d \theta}{2 \pi} + 2A_p \int_{0}^{2 \pi} \mathbb{P}( E_{\theta, \delta, N})^p \frac{d \theta}{2 \pi} \le \\ 
-			& \le \frac{1}{2^p\delta^{2p}} \int_0^{2 \pi} \left( \int_{ \{ X_n.0 \ne 0 \ \forall n > N \} } |X_\infty.\infty - X_n.\infty| d \mathbb{P}(\omega) \right)^p \frac{d \theta}{2 \pi} + 2A_p \int_{0}^{2 \pi} \mathbb{P}( E_{\theta, \delta, N})^p \frac{d \theta}{2 \pi} = \\
-			&= \frac{1}{2^p\delta^{2p}} \left( \int_{ \{ X_n.0 \ne 0 \ \forall n > N \} } |X_\infty.\infty - X_n.\infty| d \mathbb{P}(\omega) \right)^p + 2A_p \int_{0}^{2 \pi} \mathbb{P}( E_{\theta, \delta, N})^p \frac{d \theta}{2 \pi}.
-		\end{aligned}
-		\]
-		First of all, we choose such $\delta> 0$ and $N \in \mathbb{N}$ so that $\int_{0}^{2 \pi} \mathbb{P}( E_{\theta, \delta, N})^p \frac{d \theta}{2 \pi}$ is small enough, then we increase $n$ until the first integral becomes small due to DCT.
-		\item The idea is mostly the same, we can just repeat the same estimates. Define
-		
-		\[
-		\begin{aligned}
-			G_{\theta, \delta, N} := &\left\lbrace \omega \in \Omega : \left| \frac{X_n.\infty}{|X_n.\infty|} - e^{i \theta} \right| < \delta \ \forall n > N \right\rbrace \cup \\ \cup & \{ \omega \in \Omega : | X_n.\infty - e^{i \theta} | < \delta \ \forall n > N \} \cup \\ \cup & \{\omega \in \Omega : \exists n > N \  X_n.0 = 0 \}.
-		\end{aligned}
-		\]
-		
-		Using the same argument as above, for every $n > N$ (we fix $\delta > 0, N > 0$ beforehand) we get
-		
-		\[
-		\begin{aligned}
-			& \left\| \mathbb{E} \left[\frac{1}{X_n.\infty - z} - \frac{1}{\frac{X_n.\infty}{|X_n.\infty|} - z}\right] \right\|_p^p = \int_0^{2 \pi} \left| \int_{\Omega} \frac{1}{X_n.\infty - e^{i \theta}} - \frac{1}{\frac{X_n.\infty}{|X_n.\infty|} - e^{i \theta}} d \mathbb{P}(\omega) \right|^p \frac{d \theta}{2 \pi} \le \\ 
-			& \le \frac{1}{\delta^{2 p}} \left( \int_{ \{ X_n.0 \ne 0 \ \forall n > N \} } \left|\frac{X_n.\infty}{|X_n.\infty|} - X_n.\infty \right| d \mathbb{P}(\omega) \right)^p + 2 A_p \int_{0}^{2 \pi} \mathbb{P}(G_{\theta, \delta, N})^p \frac{d \theta}{2 \pi}. 
-		\end{aligned}
-		\]
-		Again, a.s. convergence makes the first integral small, and the second term is controlled by $\int_{0}^{2 \pi} \mathbb{P}(G_{\theta, \delta, N})^p \frac{d \theta}{2 \pi}$.
-	\end{itemize}
-\end{proof}
 \begin{corollary}
-	Let $(X_n)$ be an admissible random walk on a non-elementary discrete subgroup $\Gamma \leq PSU(1,1)$ with the finite first moment. If $\nu$ is the $\mu$-stationary measure, then $f_\nu(z) \in H^p \cap \overline{H^p_0}$ for all $0 < p < 1$. In particular, there are only three possible outcomes:
-	\begin{enumerate}
-		\item $\nu$ is the Lebesgue measure,
-		\item $\nu$ admits an $L^1(S^1)$-density which does not belong to $L^{(1+\varepsilon)}(S^1)$ for any $\varepsilon > 0$,
-		\item $\nu$ is singular with respect to the Lebesgue measure.
-	\end{enumerate}
+	Assume that $\mu$ satisfies the conclusion of the above conjecture. Then the $\mu$-stationary measure $\nu$ either
+	\begin{itemize}
+		\item is the Lebesgue measure
+		\item has a density in $L^1$ but not in $L^p$
+		\item is a singular measure.
+	\end{itemize}
+	If $\mu$ satisfies the Blaschke condition, then the first option is impossible. If, in addition, $\mu$ has a superexponential moment, then $\nu$ is singular.
 \end{corollary}
-\begin{proof}
-	The above theorem implies that $(h_n)_{n > 0}$ is also a Cauchy sequence in $H^p$. However, due to Aleksandrov we know that
-	\[
-	\overline{span}^{H^p} \left\lbrace \frac{1}{1 - e^{i\lambda} z} \right\rbrace_{\lambda \in \mathbb{R}} = H^p \cap \overline{H^p_0},
-	\]
-	and
-	\[
-	h_n \in \overline{span}^{H^p} \left\lbrace \frac{1}{1 - e^{i\lambda} z} \right\rbrace_{\lambda \in \mathbb{R}},
-	\]
-	therefore, $\lim\limits_{n \rightarrow \infty} h_n = f_\nu \in H^p \cap \overline{H^p_0}$. The conclusion follows from the Fatou's jump theorem and the $(p > 1)$-version of \cite[Corollary 6.2.12]{cimahardy} which follows from that Theorem \ref{T: Riesz-Riesz theorem}. Therefore, $(H^p \cap \overline{H^p_0}) \cap H^{1 + \varepsilon} = \{0\}$. 
-\end{proof}
-
-\begin{theorem}
-	Let $(X_n)$ be a admissible random walk on a non-elementary discrete subgroup $\Gamma \leq PSU(1,1)$ supported on a set satisfying the Blaschke condition with the finite first moment. Then the hitting measure $\nu$ is either singular with respect to the Lebesgue measure or it admits an $L^1(S^1)$-density which does not belong to $L^{(1+\varepsilon)}(S^1)$ for any $\varepsilon > 0$. If $(X_n)$ has a finite superexponential moment then $\nu$ is singular.
-\end{theorem}
-\begin{proof}
-	As the support satisfies the Blaschke condition, the RHS of \eqref{main equation, simp} cannot be identically zero due to the coherence property, see \cite[Proposition 4.2.14]{Shapiro1968}. Therefore, $f(z) = 0$ is not the solution to \eqref{main equation, simp}, so Lebesgue measure is not stationary. Assuming superexponential moment, \cite[Theorem 1.5(iii)]{blachere2011harmonic} implies that if $\nu$ is absolutely continuous, then the density is in $L^\infty(S^1)$. In particular, it belongs to $L^{1 + \varepsilon}(S^1)$, and the previous corollary shows that this is impossible.
-\end{proof}
 
 
 \section{Open questions}
 \begin{itemize}
-	\item The question of whether the converse of Theorem \ref{T:main result} holds is slightly harder than one might anticipate. It is easy to see from \eqref{eq2} that the integral transform $\nu \mapsto p_\nu(z)$ is injective. In particular, we get that $\text{span} \left\lbrace  \xi \mapsto \log\left( \frac{1 - |z|^2}{|z - \xi|^2} \right) : z \in \mathbb{D} \right\rbrace $ is dense in $L^2(S^1, m)$, but we aim for a stronger statement -- we want this span to be dense in $C(S^1)$. This would allow us to use the Riesz-Markov-Kakutani theorem in order to establish that $\nu$ is $\mu$-stationary. Stone-Weierstrass theorem does not apply as the space of functions respect to which stationarity holds does not need to be a subalgebra of $C(S^1)$.
 	\item It is easy to see from the proof of Corollary \ref{C:main corollary}.1 that we actually get non-existence of solutions $f(z) = \sum a_{k+1} z^k$ to \eqref{main equation, simp} with $\limsup_{n \rightarrow \infty} |a_k|^{1/k} < \varepsilon$ for some small $\varepsilon$, as only one preimage of the chosen contour explodes, so we can bound the radius of the convergence of the solution. Ideally, one would like to show that for finitely supported $\mu$ every solution of \eqref{main equation, simp} has radius of convergence exactly $1$. Keep in mind that this result would almost close the smoothness gap: it is known that absolutely continuous densities stationary with respect to finitely supported measures can belong to $C^n(S^1)$ for any $n > 1$. 
 	
 	The Douglas-Shields-Shapiro theorem implies that any holomorphic function with the radius of convergence exceeding $1$ is either cyclic with respect to the backward shift or rational. It is reasonable to assume that \eqref{main equation, simp} only has rational solutions when $\mu$ is supported on a single element, and we conjecture that former never happens.
